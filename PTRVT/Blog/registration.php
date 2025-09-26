@@ -3,6 +3,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'Vendor_Blog',
+    'PTRVT_Blog',
     __DIR__
 );
