@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">ptrvt_blog_post_listing.ptrvt_blog_post_listing_data_source</item>
+            <item name="deps" xsi:type="string">ptrvt_blog_post_listing.ptrvt_blog_post_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">ptrvt_blog_post_columns</item>
+        <item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Add New Post</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="url" path="blog/post/add"/>
+                <item name="aclResource" xsi:type="string">PTRVT_Blog::add</item>
+            </item>
+        </item>
+    </argument>
+    <dataSource name="ptrvt_blog_post_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">PTRVT\Blog\Ui\Component\DataProvider\PostDataProvider</argument>
+            <argument name="name" xsi:type="string">ptrvt_blog_post_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">post_id</argument>
+            <argument name="requestFieldName" xsi:type="string">post_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="cacheRequests" xsi:type="boolean">false</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+
+    <columns name="ptrvt_blog_post_columns" class="Magento\Ui\Component\Listing\Columns">
+        <column name="post_id">
+            <settings>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="title">
+            <settings>
+                <label translate="true">Title</label>
+            </settings>
+        </column>
+        <column name="content">
+            <settings>
+                <label translate="true">Content</label>
+            </settings>
+        </column>
+        <column name="created_at">
+            <settings>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+        <column name="updated_at">
+            <settings>
+                <label translate="true">Updated At</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="PTRVT\Blog\Ui\Component\Listing\Column\Actions">
+            <settings>
+                <label translate="true">Actions</label>
+                <indexField>post_id</indexField>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

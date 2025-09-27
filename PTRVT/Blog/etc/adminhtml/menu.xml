@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Menu/etc/menu.xsd">
+    <menu>
+        <add id="PTRVT_Blog::blog"
+            title="Blog"
+            module="PTRVT_Blog"
+            sortOrder="10"
+            resource="PTRVT_Blog::blog"/>
+
+        <add id="PTRVT_Blog::posts"
+            title="Posts"
+            module="PTRVT_Blog"
+            sortOrder="20"
+            parent="PTRVT_Blog::blog"
+            action="blog/post/index"
+            resource="PTRVT_Blog::posts"/>
+    </menu>
+</config>
