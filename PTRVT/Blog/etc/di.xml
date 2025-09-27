@@ -7,7 +7,11 @@
                 <item name="ptrvt_blog_post_listing_data_source" xsi:type="string">
                     PTRVT\Blog\Model\ResourceModel\Post\Collection
                 </item>
+                <item name="ptrvt_blog_comment_listing_data_source" xsi:type="string">
+                    PTRVT\Blog\Model\ResourceModel\Comment\Collection
+                </item>
             </argument>
         </arguments>
     </type>
+
 </config>

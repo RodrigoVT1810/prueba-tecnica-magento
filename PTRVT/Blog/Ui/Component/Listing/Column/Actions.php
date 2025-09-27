@@ -25,6 +25,15 @@ class Actions extends Column
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {
                 if (isset($item['post_id'])) {
+                    // Botón View
+                    $item[$this->getData('name')]['view'] = [
+                        'href' => $this->urlBuilder->getUrl(
+                            'blog/post/view',
+                            ['post_id' => $item['post_id']]
+                        ),
+                        'label' => __('View')
+                    ];
+
                     // Botón Edit
                     $item[$this->getData('name')]['edit'] = [
                         'href' => $this->urlBuilder->getUrl(

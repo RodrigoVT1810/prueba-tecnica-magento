@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">ptrvt_blog_comment_listing.ptrvt_blog_comment_listing_data_source</item>
+            <item name="deps" xsi:type="string">ptrvt_blog_comment_listing.ptrvt_blog_comment_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">comment_columns</item>
+    </argument>
+
+    <dataSource name="ptrvt_blog_comment_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">PTRVT\Blog\Ui\Component\DataProvider\CommentDataProvider</argument>
+            <argument name="name" xsi:type="string">ptrvt_blog_comment_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">comment_id</argument>
+            <argument name="requestFieldName" xsi:type="string">comment_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="cacheRequests" xsi:type="boolean">false</item>
+                    </item>
+                    <item name="filter_url_params" xsi:type="array">
+                        <item name="post_id" xsi:type="string">post_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+
+    <columns name="comment_columns">
+        <column name="comment_id">
+            <settings>
+                <label translate="true">ID</label>
+            </settings>
+        </column>
+        <column name="comment">
+            <settings>
+                <label translate="true">Comment</label>
+            </settings>
+        </column>
+        <column name="created_at">
+            <settings>
+                <label translate="true">Created At</label>
+            </settings>
+        </column>
+    </columns>
+</listing>
