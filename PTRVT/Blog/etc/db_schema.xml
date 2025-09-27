@@ -8,6 +8,7 @@
         <column xsi:type="varchar" name="title" nullable="false" length="255" comment="Title"/>
         <column xsi:type="text" name="content" nullable="false" comment="Content"/>
         <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="post_id"/>
         </constraint>
@@ -19,13 +20,13 @@
         <column xsi:type="int" name="post_id" unsigned="true" nullable="false" comment="Post ID"/>
         <column xsi:type="text" name="comment" nullable="false" comment="Comment"/>
         <column xsi:type="timestamp" name="created_at" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="comment_id"/>
         </constraint>
         <constraint xsi:type="foreign" referenceId="FK_PTRVT_BLOG_COMMENT_POST_ID"
-                    table="ptrvt_blog_comment" column="post_id"
-                    referenceTable="ptrvt_blog_post" referenceColumn="post_id"
-                    onDelete="CASCADE"/>
+            table="ptrvt_blog_comment" column="post_id"
+            referenceTable="ptrvt_blog_post" referenceColumn="post_id"
+            onDelete="CASCADE"/>
     </table>
-
 </schema>
