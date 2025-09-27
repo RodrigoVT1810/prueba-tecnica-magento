@@ -14,4 +14,22 @@
         </arguments>
     </type>
 
+    <preference for="PTRVT\Blog\Api\CommentRepositoryInterface" type="PTRVT\Blog\Model\CommentRepository"/>
+    <preference for="PTRVT\Blog\Api\PostRepositoryInterface" type="PTRVT\Blog\Model\PostRepository"/>
+
+    <!-- Inyección explícita para resolver de Posts -->
+    <type name="PTRVT\Blog\Model\Resolver\Posts">
+        <arguments>
+            <argument name="postCollectionFactory" xsi:type="object">PTRVT\Blog\Model\ResourceModel\Post\CollectionFactory</argument>
+            <argument name="commentCollectionFactory" xsi:type="object">PTRVT\Blog\Model\ResourceModel\Comment\CollectionFactory</argument>
+        </arguments>
+    </type>
+
+    <!-- Y lo mismo para resolver de un Post -->
+    <type name="PTRVT\Blog\Model\Resolver\Post">
+        <arguments>
+            <argument name="postCollectionFactory" xsi:type="object">PTRVT\Blog\Model\ResourceModel\Post\CollectionFactory</argument>
+            <argument name="commentCollectionFactory" xsi:type="object">PTRVT\Blog\Model\ResourceModel\Comment\CollectionFactory</argument>
+        </arguments>
+    </type>
 </config>

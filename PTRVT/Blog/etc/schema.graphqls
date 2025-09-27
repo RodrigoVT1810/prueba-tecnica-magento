@@ -1,0 +1,22 @@
+type Post {
+    post_id: Int
+    title: String
+    content: String
+    created_at: String
+    updated_at: String
+    comments: [Comment]
+}
+
+type Comment {
+    comment_id: Int
+    post_id: Int
+    comment: String
+    created_at: String
+    updated_at: String
+}
+
+type Query {
+    ptrvtBlogPosts: [Post] @resolver(class: "PTRVT\\Blog\\Model\\Resolver\\Posts")
+    ptrvtBlogPost(id: Int!): Post @resolver(class: "PTRVT\\Blog\\Model\\Resolver\\Post")
+    ptrvtBlogComments: [Comment] @resolver(class: "PTRVT\\Blog\\Model\\Resolver\\Comments")
+}

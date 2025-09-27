@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <!-- Obtener todos los posts -->
+    <route url="/V1/blog/posts" method="GET">
+        <service class="PTRVT\Blog\Api\PostRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- Obtener un post por ID -->
+    <route url="/V1/blog/post/:id" method="GET">
+        <service class="PTRVT\Blog\Api\PostRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <!-- Obtener comentarios de un post -->
+    <route url="/V1/blog/post/:postId/comments" method="GET">
+        <service class="PTRVT\Blog\Api\CommentRepositoryInterface" method="getByPostId"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>
