@@ -24,5 +24,6 @@ Módulo personalizado para Magento 2.4.7 que permite gestionar **Posts** con sus
 bin/magento module:enable PTRVT_Blog
 bin/magento setup:upgrade
 bin/magento setup:di:compile
+bin/magento cache:clean
 bin/magento cache:flush
 
